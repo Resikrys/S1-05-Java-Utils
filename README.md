@@ -38,8 +38,11 @@ To Run code, press `Ctrl F5` or click the `play` icon in the gutter.
 
 ### 🛠️ SCRIPTS
 
+- Step 1: Create program's font code
+- Step 2: Compile & Run the program
+
 ```bash
-mvn compile          # Compile project
-mvn test             # execute JUnit tests
-mvn package          # Package in .jar
+cd FileDir        # Go to file directory
+javac File.java   # Compile project with virtual machine (bytecode)
+java MainClass    # Execute Java file
 ```
