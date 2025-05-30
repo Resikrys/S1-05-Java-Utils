@@ -6,8 +6,8 @@ public class Task5 {
     public static void main(String[] args) {
 //        printCurrentWorkingDirectoryUsingFileSystems();
 //        findAllFilesInFolder(folder);
-        ScanFile.addFiles();
-        ScanFile.alphabeticOrderList();
+        ScanFile.addAndOrderFile();
+        ScanFile.findAllFilesInFolder(ScanFile.rootFolder);
 
     }
 }
