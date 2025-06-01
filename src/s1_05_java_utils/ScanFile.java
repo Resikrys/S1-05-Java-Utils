@@ -54,16 +54,16 @@ public class ScanFile {
                 text = indent + "D: " + file.getName() + " [ " + lastMod + " ]\n";
                 System.out.print(text);
                 try {
-                    Files.writeString(Paths.get("./textExercise3.txt"), text, StandardOpenOption.APPEND);
+                    Files.writeString(Paths.get("C:/Users/elyri/IdeaProjects/S1_05_Java_Utils/textExercise3.txt"), text, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
                 } catch (Exception e) {
 
                 }
                 findAllFilesInFolder(file, indent + "    ");
             } else {
-                text = indent + "D: " + file.getName() + " [ " + lastMod + " ]\n";
+                text = indent + "F: " + file.getName() + " [ " + lastMod + " ]\n";
                 System.out.print(text);
                 try {
-                    Files.writeString(Paths.get("./textExercise3.txt"), text, StandardOpenOption.APPEND);
+                    Files.writeString(Paths.get("C:/Users/elyri/IdeaProjects/S1_05_Java_Utils/textExercise3.txt"), text, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
                 } catch (Exception e) {
 
                 }
