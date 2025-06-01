@@ -1,8 +1,7 @@
 package s1_05_java_utils;
 
 import java.io.File;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
+import java.nio.file.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -30,7 +29,7 @@ public class ScanFile {
         alphabeticOrderList();
     }
 
-    //Exercise 2
+    //Exercise 2 + 3
     public static void findAllFilesInFolder(File folder) {
         findAllFilesInFolder(folder, "");
     }
@@ -40,49 +39,32 @@ public class ScanFile {
 
         if (files == null) return;
 
-        // Ordenar por nombre alfabéticamente
         Arrays.sort(files, Comparator.comparing(File::getName, String.CASE_INSENSITIVE_ORDER));
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
         for (File file : files) {
             String lastMod = sdf.format(new Date(file.lastModified()));
+            String text;
             if (file.isDirectory()) {
-                System.out.println(indent + "D: " + file.getName() + " [ " + lastMod + " ]");
-                findAllFilesInFolder(file, indent + "    "); // Aumentar sangría
+                text = indent + "D: " + file.getName() + " [ " + lastMod + " ]\n";
+                System.out.print(text);
+                try {
+                    Files.writeString(Paths.get("./textExercise3.txt"), text, StandardOpenOption.APPEND);
+                } catch (Exception e) {
+
+                }
+                findAllFilesInFolder(file, indent + "    ");
             } else {
-                System.out.println(indent + "F: " + file.getName() + " [ " + lastMod + " ]");
+                text = indent + "D: " + file.getName() + " [ " + lastMod + " ]\n";
+                System.out.print(text);
+                try {
+                    Files.writeString(Paths.get("./textExercise3.txt"), text, StandardOpenOption.APPEND);
+                } catch (Exception e) {
+
+                }
             }
         }
     }
-
-//    public static void findAllFilesInFolder(File folder) {
-//        List<String> filesInFolder = new ArrayList<String>();
-//        try{
-//            for (File file : Objects.requireNonNull(folder.listFiles())) {
-//                if (!file.isDirectory()) {
-//                    filesInFolder.add("F: " + file.getName() + " [ " + file.lastModified() + " ] ");
-//                } else {
-//                    filesInFolder.add("D: " + file.getName() + " [ " + file.lastModified() + " ] ");
-//                    findAllFilesInFolder(file);
-//                }
-//            }
-//            filesInFolder.stream().sorted().forEachOrdered(System.out::println);
-//        } catch(Exception e) {
-//
-//        }
-//
-//    }
-
-
-
-    // Print Current Working Directory using File Systems
-//    static void printCurrentWorkingDirectoryUsingFileSystems() {
-//
-//        Path currentDirectoryPath = FileSystems.getDefault().getPath("");
-//        String currentDirectoryName = currentDirectoryPath.toAbsolutePath().toString();
-//        System.out.println("Current Directory = \"" + currentDirectoryName + "\"");
-//    }
-
 }
-
+//Java jackson
