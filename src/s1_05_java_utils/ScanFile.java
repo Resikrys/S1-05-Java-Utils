@@ -1,14 +1,17 @@
 package s1_05_java_utils;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ScanFile {
 
-    private static File folder = new File("C:\\Users\\elyri\\IdeaProjects\\S1_05_Java_Utils\\src\\s1_05_java_utils");
-    public static File rootFolder = new File("C:\\Program Files");
+    public static File folder = new File("C:\\Users\\elyri\\IdeaProjects\\S1_05_Java_Utils");
+    public static File rootFolder = new File("C:\\Users\\elyri\\IdeaProjects\\S1_05_Java_Utils\\src\\s1_05_java_utils");
     private static File[] listOfFiles = folder.listFiles();
 
     private static List<String> filesInFolder = new ArrayList<String>();
@@ -64,6 +67,24 @@ public class ScanFile {
 
                 }
             }
+        }
+    }
+
+    //Exercise 4
+    public static void readAndPrintTextFile(File file) {
+        if (!file.exists() || !file.getName().endsWith(".txt")) {
+            System.out.println("File not found.");
+            return;
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            System.out.println("File content:");
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Error at file reading: " + e.getMessage());
         }
     }
 }
