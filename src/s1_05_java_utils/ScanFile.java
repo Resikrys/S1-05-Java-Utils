@@ -10,9 +10,10 @@ import java.util.*;
 
 public class ScanFile {
 
-    public static File folder = new File("C:\\Users\\elyri\\IdeaProjects\\S1_05_Java_Utils");
-    public static File rootFolder = new File("C:\\Users\\elyri\\IdeaProjects\\S1_05_Java_Utils\\src\\s1_05_java_utils");
+    private static File folder = new File("C:\\Users\\elyri\\IdeaProjects\\S1_05_Java_Utils\\src\\s1_05_java_utils");
+    public static File rootFolder = new File("C:\\Users\\elyri\\IdeaProjects");
     private static File[] listOfFiles = folder.listFiles();
+    public static File fileEx4 = new File("C:\\Users\\elyri\\IdeaProjects\\S1_05_Java_Utils\\src\\s1_05_java_utils\\Task5_Ex4.txt");
 
     private static List<String> filesInFolder = new ArrayList<String>();
 

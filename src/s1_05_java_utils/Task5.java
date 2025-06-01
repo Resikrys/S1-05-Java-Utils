@@ -6,7 +6,7 @@ public class Task5 {
     public static void main(String[] args) {
         ScanFile.addAndOrderFile();
         ScanFile.findAllFilesInFolder(ScanFile.rootFolder);
-        ScanFile.readAndPrintTextFile(folder);
+        ScanFile.readAndPrintTextFile(ScanFile.fileEx4);
 
     }
 }
