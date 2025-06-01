@@ -31,7 +31,9 @@ then deserialize it.
 | `java.util`                | ^24.0.1 | Java standard library      |
 
 ### REQUIREMENTS
-Local environment: `IntelliJ or Eclipse`
+- Local environment: `IntelliJ or Eclipse`
+- JDK 8 or superior
+- Compatible file system (Windows, Linux, etc.)
 
 ###  INTELLIJ EXECUTION
 To Run code, press `Ctrl F5` or click the `play` icon in the gutter.
@@ -42,7 +44,7 @@ To Run code, press `Ctrl F5` or click the `play` icon in the gutter.
 - Step 2: Compile & Run the program
 
 ```bash
-cd FileDir        # Go to file directory
-javac File.java   # Compile project with virtual machine (bytecode)
-java MainClass    # Execute Java file
+cd C:\Users\elyri\IdeaProjects\S1_05_Java_Utils   # Go to root file directory
+javac -d out src\s1_05_java_utils\*.java   # -d out indicates that the compiled .classes will be placed in an out folder
+java -cp out s1_05_java_utils.Task5  # -cp out tells Java where to look for the .class
 ```
