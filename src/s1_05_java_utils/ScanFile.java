@@ -1,9 +1,6 @@
 package s1_05_java_utils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -86,6 +83,27 @@ public class ScanFile {
             }
         } catch (IOException e) {
             System.out.println("Error at file reading: " + e.getMessage());
+        }
+    }
+
+    //Exercise 5
+    public static void serializerObject(Object obj, String filepath) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filepath))) {
+            out.writeObject(obj);
+            System.out.println("Object serialized at " + filepath);
+        } catch (IOException e) {
+            System.out.println("Error with serialization: " + e.getMessage());
+        }
+    }
+
+    public static Object deserializerObject(String filepath) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filepath))) {
+            Object obj = in.readObject();
+            System.out.println("Object deserialized.");
+            return obj;
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error with deserialization: " + e.getMessage());
+            return null;
         }
     }
 }
