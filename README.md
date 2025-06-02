@@ -1,5 +1,5 @@
 # SPRINT 1
-## TASK 4: Java Utils
+## TASK 5: Java Utils
 
 ### LEVEL 1 - EXERCISE 1
 Create a class that lists alphabetically the contents of a 
@@ -25,10 +25,13 @@ Now the program must serialize a Java Object to a .ser file and
 then deserialize it.
 
 ### TECHNOLOGIES
-| Package                    | Version | Description                |
-|----------------------------|---------|----------------------------|
-| `java`                     | ^24.0.1 | Principal project language |
-| `java.util`                | ^24.0.1 | Java standard library      |
+| Package     | Version | Description                |
+|-------------|---------|----------------------------|
+| `java`      | ^24.0.1 | Principal project language |
+| `java.util` | ^24.0.1 | Java standard library      |
+| `java.io`   | ^24.0.1 | Java standard library      |
+| `java.nio`  | ^24.0.1 | Java standard library      |
+| `java.text.SimpleDateFormat` | ^24.0.1 | Java standard library      |
 
 ### REQUIREMENTS
 - Local environment: `IntelliJ or Eclipse`

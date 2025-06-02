@@ -8,11 +8,13 @@ import java.util.*;
 public class ScanFile {
 
     private static File folder = new File("C:\\Users\\elyri\\IdeaProjects\\S1_05_Java_Utils\\src\\s1_05_java_utils");
-    public static File rootFolder = new File("C:\\Users\\elyri\\IdeaProjects");
     private static File[] listOfFiles = folder.listFiles();
+    private static List<String> filesInFolder = new ArrayList<String>();
+
+    public static File rootFolder = new File("C:\\Users\\elyri\\IdeaProjects");
     public static File fileEx4 = new File("C:\\Users\\elyri\\IdeaProjects\\S1_05_Java_Utils\\src\\s1_05_java_utils\\Task5_Ex4.txt");
 
-    private static List<String> filesInFolder = new ArrayList<String>();
+
 
     //Exercise 1
     public static void addFiles() {
@@ -42,13 +44,13 @@ public class ScanFile {
 
         Arrays.sort(files, Comparator.comparing(File::getName, String.CASE_INSENSITIVE_ORDER));
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
         for (File file : files) {
-            String lastMod = sdf.format(new Date(file.lastModified()));
+            String lastModification = date.format(new Date(file.lastModified()));
             String text;
             if (file.isDirectory()) {
-                text = indent + "D: " + file.getName() + " [ " + lastMod + " ]\n";
+                text = indent + "D: " + file.getName() + " [ " + lastModification + " ]\n";
                 System.out.print(text);
                 try {
                     Files.writeString(Paths.get("C:/Users/elyri/IdeaProjects/S1_05_Java_Utils/textExercise3.txt"), text, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
@@ -57,7 +59,7 @@ public class ScanFile {
                 }
                 findAllFilesInFolder(file, indent + "    ");
             } else {
-                text = indent + "F: " + file.getName() + " [ " + lastMod + " ]\n";
+                text = indent + "F: " + file.getName() + " [ " + lastModification + " ]\n";
                 System.out.print(text);
                 try {
                     Files.writeString(Paths.get("C:/Users/elyri/IdeaProjects/S1_05_Java_Utils/textExercise3.txt"), text, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
@@ -107,4 +109,3 @@ public class ScanFile {
         }
     }
 }
-//Java jackson
